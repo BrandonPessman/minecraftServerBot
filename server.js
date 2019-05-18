@@ -20,11 +20,7 @@ function intervalFunc() {
     .then(response => response.json())
     .then(data => {
       client.user.setActivity(
-        'Minecraft with ' +
-          data.players.now +
-          '/' +
-          data.players.max +
-          ' Players!'
+        'MC with ' + data.players.now + '/' + data.players.max + ' Players!'
       )
       console.log(count + ': ' + data.players.now + '/' + data.players.max)
     })
