@@ -25,6 +25,7 @@ function intervalFunc() {
         )
         .then(e => {
           console.log(count + ': ' + data.players.now + '/' + data.players.max)
+          count++
           setTimeout(intervalFunc, 5 * 60000)
         })
     })
