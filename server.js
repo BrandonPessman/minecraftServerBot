@@ -19,14 +19,14 @@ function intervalFunc() {
   fetch('https://mcapi.us/server/status?ip=51.79.44.222&port=25592')
     .then(response => response.json())
     .then(data => {
-      client.user.setActivity(
-        'MC with ' + data.players.now + '/' + data.players.max + ' Players!'
-      )
-      console.log(count + ': ' + data.players.now + '/' + data.players.max)
-    })
-    .then(e => {
-      setInterval(intervalFunc, 60000)
-      count++
+      client.user
+        .setActivity(
+          'MC with ' + data.players.now + '/' + data.players.max + ' Players!'
+        )
+        .then(e => {
+          console.log(count + ': ' + data.players.now + '/' + data.players.max)
+          setTimeout(intervalFunc, 5 * 60000)
+        })
     })
 }
 
