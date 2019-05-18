@@ -2,7 +2,6 @@ const express = require('express')
 const MongoClient = require('mongodb').MongoClient
 const bodyParser = require('body-parser')
 const app = express()
-const port = process.env.PORT
 
 const fetch = require('isomorphic-fetch')
 
@@ -38,8 +37,8 @@ client.on('message', msg => {
   }
 })
 
-client.login(process.env.CLIENT_TOKEN)
+client.login('' + process.env.CLIENT_KEY)
 
-app.listen(port, () => {
-  console.log('API Live on Port: ' + port)
+app.listen(process.env.PORT, () => {
+  console.log('API Live on Port: ' + process.env.PORT)
 })
