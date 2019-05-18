@@ -4,7 +4,7 @@
   "description": "A Discord Bot for Displaying the current status of a Minecraft Server.",
   "main": "server.js",
   "scripts": {
-    "dev": "start server.js"
+    "start": "node server.js"
   },
   "author": "Brandon Pessman",
   "license": "ISC",
