@@ -1,5 +1,4 @@
 const express = require('express')
-const MongoClient = require('mongodb').MongoClient
 const bodyParser = require('body-parser')
 const app = express()
 
@@ -15,6 +14,7 @@ client.on('ready', () => {
   intervalFunc()
 })
 
+var count = 0
 function intervalFunc() {
   fetch('https://mcapi.us/server/status?ip=51.79.44.222&port=25592')
     .then(response => response.json())
@@ -22,12 +22,11 @@ function intervalFunc() {
       client.user.setActivity(
         'Online with ' + data.players.now + '/' + data.players.max + ' Players!'
       )
-      console.log(data.players.now + '/' + data.players.max)
-      setInterval(intervalFunc, 60000)
+      console.log(count + ': ' + data.players.now + '/' + data.players.max)
     })
-    .catch(err => {
-      console.log(err)
+    .then(e => {
       setInterval(intervalFunc, 60000)
+      count++
     })
 }
 
