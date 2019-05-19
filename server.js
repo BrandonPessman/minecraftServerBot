@@ -20,7 +20,11 @@ function intervalFunc() {
     .then(data => {
       client.user
         .setActivity(
-          'Minecraft | ' + data.players.now + '/' + data.players.max + ' Online'
+          'Minecraft | [' +
+            data.players.now +
+            '/' +
+            data.players.max +
+            '] Online!'
         )
         .then(e => {
           console.log(count + ': ' + data.players.now + '/' + data.players.max)
