@@ -1,5 +1,4 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const app = express()
 
 const fetch = require('isomorphic-fetch')
@@ -21,7 +20,7 @@ function intervalFunc() {
     .then(data => {
       client.user
         .setActivity(
-          'MC with ' + data.players.now + '/' + data.players.max + ' Players!'
+          'with [' + data.players.now + '/' + data.players.max + '] Players!'
         )
         .then(e => {
           console.log(count + ': ' + data.players.now + '/' + data.players.max)
